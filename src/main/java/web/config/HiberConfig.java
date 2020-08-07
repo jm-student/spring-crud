@@ -30,7 +30,8 @@ public class HiberConfig {
     @Autowired
     private Environment environment;
 
-    @Bean(name = "entityManagerFactory") //JPA-cfg
+    //JPA-cfg-begin
+    @Bean(name = "entityManagerFactory")
     public LocalContainerEntityManagerFactoryBean getEntityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean managerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         managerFactoryBean.setJpaVendorAdapter(getJpaVendorAdapter());
@@ -57,7 +58,8 @@ public class HiberConfig {
         );
 
         return jpaTransactionManager;
-    } //JPA-cfg
+    }
+    //JPA-cfg-end
 
     @Bean
     public DataSource dataSource() {
